@@ -224,7 +224,33 @@ section .card p{
 .footer span{
   color: #fff;
 }
-
-.navbar .nav-links{
-  position: fixed;
+#menu-toggler{
+  display: none;
+}
+@media (width < 860px) {
+  .navbar .nav-links{
+    position: fixed;
+    left: 0;
+    top: 65px;
+    height: 100%;
+    display: block;
+    background: #333;
+    width: 300px;
+    padding-left: 20px;
+    padding-top: 30px;
+    left: -100%;
+    transition: all 0.4s ease;
+  }
+  #menu-toggler:checked ~ .nav-links{
+    left: 0; 
+  }
+  .nav-links li{
+    font-size: 18px;
+  }
+  
+  #hamburger-btn{
+    color: #333;
+    font-size: 22px;
+    cursor: pointer;
+  }
 }
