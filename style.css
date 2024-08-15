@@ -45,13 +45,14 @@ header{
   font-size: 24px;
   display: inline-block;
   color: #f00909;
-  text-decoration: underline;
+  text-decoration: none;
   text-transform: capitalize;
   transition: 0.2s;
 }
  
 .navbar a:hover{
   color: #c30101;
+  text-decoration: underline;
 }
 h2 img{
   top: 10px;
@@ -141,8 +142,8 @@ section .card{
   margin-bottom: 40px;
 }
 section .card img{
-  height: 120px;
-  width: 120px;
+  max-height: 120px;
+  max-width: 120px;
   border-radius: 10%;
   margin-bottom: 20px;
 }
