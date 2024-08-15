@@ -1,7 +1,7 @@
 const pswrdField = document.querySelector(".form .field input[type='password']");
-toggleBtn = document.querySelector(".form .field i");
+let toggleBtn = document.querySelector(".form .field i");
 
-toggleBtn.onclick = () => {
+toggleBtn.addEventListener (click, () => {
     if(pswrdField.type == "password"){
         pswrdField.type = "text";
         toggleBtn.classList.add("active");
@@ -9,4 +9,4 @@ toggleBtn.onclick = () => {
         pswrdField.type = "password";
         toggleBtn.classList.remove("active");
     }
-}
+});
