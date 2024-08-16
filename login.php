@@ -4,7 +4,7 @@
     <meta charset = "UTF-8">
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
-    <title>Foursquare Wholesale</title>
+    <title>Foursquare Distributors</title>
     <link rel = "stylesheet" href = "loginstyle.css">
     <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
@@ -13,7 +13,7 @@
         <section class = "form login">
             <div class="header-container">
                 <div class="link" id="home"><a href= "index.html"><i class = "fas fa-arrow-left"></i></a></div>
-                <header>Foursquare Wholesale</header>
+                <header>Foursquare Distributors</header>
             </div>
             <form action = "#">
                 <div class="error-txt">This is an error message!</div>
