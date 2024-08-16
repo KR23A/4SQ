@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Foursquare Distributors</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
@@ -23,7 +23,7 @@
     <section class="homepage" id="home">
         <div class="content flex">
             <div class="text">
-                <h1>Foursquare Wholesale</h1>
+                <h1>Foursquare Distributors</h1>
                 <p>Giving you the very best in wholesale products.</p>
             </div>
             <a href="#services">Our Services</a>
