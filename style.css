@@ -33,6 +33,7 @@ header{
 
 .navbar{
   justify-content: space-between;
+  padding: 10px;
 }
 
 .nav-links{
@@ -41,7 +42,8 @@ header{
 }
 
 .navbar a{
-  padding: 20px 0;
+  position: relative;
+  padding: 10px 20px;
   font-size: 24px;
   display: inline-block;
   color: #f00909;
@@ -57,9 +59,9 @@ header{
 h2 img{
   top: 10px;
   left: 0;
-  position: fixed;
-  max-width: 350px;
-  width: 40%;
+  position: relative;
+  max-width: 100%;
+  width: 85%;
   padding: 0 20px;
 }
 
@@ -227,14 +229,15 @@ section .card p{
 }
   
 .login-btn{
-    margin-left: auto;
     padding: 10px 20px;
-    background-color: #f00909;
-    color: white;
+    margin-left: auto;
+    color: white !important;
+    background-color: #f00909 !important;
     border: none;
     border-radius: 5px;
     text-decoration: none;
     font-size: 16px;
+    display: inline-block;
 }
 
 .login-btn:hover {
