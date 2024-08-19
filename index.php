@@ -14,7 +14,7 @@
             <u1 class = "nav-links flex"> 
                 <li><a href = "#home">Home</a></li>
                 <li><a href = "#about">About</a></li>
-                <li><a href = "#services">Services</a></li>
+                <li><a href = "disposables">Disposables</a></li>
                 <li><a href = "#contact">Contact</a></li>
             </u1>
             <a href= "login.html" class="login-btn">Login</a>
@@ -26,44 +26,44 @@
                 <h1>Foursquare Distributors</h1>
                 <p>Giving you the very best in wholesale products.</p>
             </div>
-            <a href="#services">Our Services</a>
+            <a href="disposables">Disposable Vapes</a>
         </div>
     </section>
-    <section class="services" id="services">
+    <section class="Disposables" id="Disposables">
         <div class="container">
             <div class="section-title">
-                <h2>Our Services</h2>
+                <h2>Disposable Vapes</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt praesentium commodi iusto corporis vel a?</p>
             </div>
             <u1 class="cards flex">
                 <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
+                    <img src ="images/G15K.jpg" alt ="Geekbar">
+                    <h3>Geek Bar 15000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
                 </li>
                 <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
+                    <img src ="images/GSky.jpg" alt = "Geekbar Skyview">
+                    <h3>Geek Bar Skyview</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
                 </li>
                 <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
+                    <img src ="images/G25K.jpg" alt = "Geekbar 25000">
+                    <h3>Geek Bar 25000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
                 </li>
                 <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
+                    <img src ="images/ijoy10.jpg" alt = "ijoy10">
+                    <h3>iJoy Bar 10000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
                 </li>
                 <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
+                    <img src ="images/ijoy22.png" alt = "ijoy22">
+                    <h3>iJoy Bar 22000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
                 </li>
                 <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
+                    <img src ="images/fruty.jpg" alt = "frutybar">
+                    <h3>Fruty Bar</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
                 </li>
             </u1>
