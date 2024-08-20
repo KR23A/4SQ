@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-    <!--TEST-->
+    <!--TEST2-->
         <nav class = "navbar container flex">
             <h2 class = "logo"><img src = "images/4SQLogo.png" alt = "Foursquare Wholesale"></h2>  
             <u1 class = "nav-links flex"> 
@@ -35,40 +35,46 @@
                 <h2>Disposable Vapes</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt praesentium commodi iusto corporis vel a?</p>
             </div>
-            <u1 class="cards flex">
-                <li class ="card">
-                    <img src ="images/G15K.jpg" alt ="Geekbar">
+            <ul class="cards flex">
+                <li class="card">
+                    <img src="images/G15K.jpg" alt="Geekbar">
                     <h3>Geek Bar 15000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
+                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
                 </li>
-                <li class ="card">
-                    <img src ="images/GSky.jpg" alt = "Geekbar Skyview">
+                <li class="card">
+                    <img src="images/GSky.jpg" alt="Geekbar Skyview">
                     <h3>Geek Bar Skyview</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
+                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
                 </li>
-                <li class ="card">
-                    <img src ="images/G25K.jpg" alt = "Geekbar 25000">
+                <li class="card">
+                    <img src="images/G25K.jpg" alt="Geekbar 25000">
                     <h3>Geek Bar 25000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
+                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
                 </li>
-                <li class ="card">
-                    <img src ="images/ijoy10.jpg" alt = "ijoy10">
+                <li class="card">
+                    <img src="images/ijoy10.jpg" alt="ijoy10">
                     <h3>iJoy Bar 10000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
+                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
                 </li>
-                <li class ="card">
-                    <img src ="images/ijoy22.png" alt = "ijoy22">
+                <li class="card">
+                    <img src="images/ijoy22.png" alt="ijoy22">
                     <h3>iJoy Bar 22000</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
+                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
                 </li>
-                <li class ="card">
-                    <img src ="images/fruty.jpg" alt = "frutybar">
+                <li class="card">
+                    <img src="images/fruty.jpg" alt="frutybar">
                     <h3>Fruty Bar</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
+                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
                 </li>
-            </u1>
+            </ul>
         </div>
-    </section>
+    </section>    
     <section class="portfolio" id="portfolio">
         <div class="container">
             <div class="section-title">
@@ -125,7 +131,7 @@
             </div>
 
             <div class="col form">
-                <form action="#">
+                <form method="POST" action="/contact">
                     <input type="text" placeholder= "Name*" required>
                     <input type="email" placeholder= "Email*" required>
                     <textarea placeholder="Message*" required></textarea>
@@ -141,5 +147,6 @@
             <span>Copyright © 2024 All Rights Reserved</span>
         </div>
     </footer>
+    <script src = "javascript/prices.js"></script>
 </body>
 </html>
