@@ -1,54 +1,89 @@
-// Simulated user data (In a real application, this would be fetched from a server)
-const users = [
-    { username: 'user1', password: 'password1' },
-    { username: 'user2', password: 'password2' }
-];
+// Simulated user database
+const users = JSON.parse(localStorage.getItem('users')) || [];
 
 // Simulated price data
-const prices = [
-    { item: 'Product 1', price: '$10' },
-    { item: 'Product 2', price: '$20' },
-    { item: 'Product 3', price: '$30' }
-];
+const productPrices = {
+    1: '$10',
+    2: '$20',
+    3: '$30',
+    4: '$40',
+    5: '$50',
+    6: '$60'
+};
 
-// Handle login
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    // Check if the user exists
-    const user = users.find(u => u.username === username && u.password === password);
-
-    if (user) {
-        localStorage.setItem('loggedIn', true);
-        document.getElementById('login').style.display = 'none';
-        displayPrices();
-    } else {
-        document.getElementById('loginMessage').innerText = 'Invalid username or password.';
-    }
-});
-
-// Display prices if logged in
-function displayPrices() {
+// Function to display prices if the user is logged in
+function displayPricesOnCards() {
     if (localStorage.getItem('loggedIn')) {
-        document.getElementById('prices').style.display = 'block';
-        const priceList = document.getElementById('priceList');
-        priceList.innerHTML = '';
-
-        prices.forEach(price => {
-            const listItem = document.createElement('li');
-            listItem.innerText = `${price.item}: ${price.price}`;
-            priceList.appendChild(listItem);
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            const priceElement = card.querySelector('.price a');
+            const priceValue = productPrices[index + 1];
+            if (priceValue) {
+                priceElement.innerText = priceValue;
+                priceElement.removeAttribute('href'); // Remove the link if the price is displayed
+                priceElement.classList.remove('login-to-view-price-btn');
+            }
         });
     }
 }
 
-// Check if the user is already logged in when the page loads
-window.onload = function() {
-    if (localStorage.getItem('loggedIn')) {
-        document.getElementById('login').style.display = 'none';
-        displayPrices();
+
+// Signup form handling
+document.querySelector('.signup form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.querySelector('.signup input[type="email"]').value;
+    const password = document.querySelector('.signup input[type="password"]').value;
+
+    if (users.some(user => user.email === email)) {
+        document.querySelector('.signup .error-txt').innerText = 'User already exists!';
+    } else {
+        users.push({ firstName, lastName, email, password });
+        localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('loggedIn', true);
+        localStorage.setItem('loggedInUser', email);
+
+        window.location.href = 'index.html'; // Redirect to the index page
     }
+});
+
+// Login form handling
+document.querySelector('.login form')?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const email = document.querySelector('.login input[type="text"]').value;
+    const password = document.querySelector('.login input[type="password"]').value;
+
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        localStorage.setItem('loggedIn', true);
+        localStorage.setItem('loggedInUser', email);
+        window.location.href = 'index.html'; // Redirect to the index page
+    } else {
+        document.querySelector('.login .error-txt').innerText = 'Invalid email or password!';
+    }
+});
+
+// Display prices on the product cards in index.html
+function displayPricesOnCards() {
+    if (localStorage.getItem('loggedIn')) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const productId = card.getAttribute('data-product-id');
+            const priceElement = card.querySelector('.price-value');
+            if (productPrices[productId]) {
+                priceElement.innerText = productPrices[productId];
+            } else {
+                priceElement.innerText = 'Price not available';
+            }
+        });
+    }
+}
+
+// Run on page load
+window.onload = function() {
+    displayPricesOnCards();
 };
