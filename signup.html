@@ -1,54 +1,69 @@
 <!DOCTYPE html>
-<html lang = en>
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <meta http-equiv = "X-UA-Compatible" content = "ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Foursquare Distributors</title>
-    <link rel = "stylesheet" href = "css/loginstyle.css">
-    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/loginstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="wrapper">
-        <section class = "form signup">
+        <section class="form signup">
             <div class="header-container">
-                <div class="link" id="home"><a href= "index.html"><i class = "fas fa-arrow-left"></i></a></div>
+                <div class="link" id="home"><a href="index.html"><i class="fas fa-arrow-left"></i></a></div>
                 <header>Sign up!</header>
             </div>
-            <form action = "#">
+            <form action="signup-process.php" method="POST" enctype="multipart/form-data">
                 <div class="error-txt">This is an error message!</div>
                 <div class="name-details">
                     <div class="field input">
                         <label>First Name</label>
-                        <input type = "text" id ="firstName" placeholder = "First Name" required>
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
                     </div>
                     <div class="field input">
                         <label>Last Name</label>
-                        <input type = "text" id ="lastName" placeholder = "Last Name" required>
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
                     </div>
                 </div>
-                    <div class="field input">
-                        <label>Email Address</label>
-                        <input type = "email" placeholder = "Enter your email" required>
-                    </div>
-                    <div class="field input">
-                        <label>Password</label>
-                        <input type = "password" placeholder = "Enter your password" required>
-                        <i class = "fas fa-eye"></i>
-                    </div>
-                    <div class="field image">
-                        <label>Select Profile Picture</label>
-                        <input type = "file", accept="image/*">
-                    </div>
-                    <div class="field button">
-                        <input type = "submit" value = "Start Chatting!">
-                    </div>
+                <div class="field input">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="field input">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="field input">
+                    <label>Business Name</label>
+                    <input type="text" name="businessName" placeholder="Enter your business name" required>
+                </div>
+                <div class="field input">
+                    <label>DBA (Doing Business As)</label>
+                    <input type="text" name="dba" placeholder="Enter your DBA" required>
+                </div>
+                <div class="field input">
+                    <label>Licenses</label>
+                    <input type="file" name="licenses" placeholder="Provide your licenses" accept="image/*" required>
+                </div>
+                <div class="field input">
+                    <label>EIN (Employer Identification Number)</label>
+                    <input type="text" name="ein" placeholder="Enter your EIN" required>
+                </div>
+                <div class="field image">
+                    <label>Select Profile Picture</label>
+                    <input type="file" name="profilePicture" accept="image/*" required>
+                </div>
+                <div class="field button">
+                    <input type="submit" value="Submit for Approval">
+                </div>
             </form>
-            <div class="link">Already a user? <a href = "login.html">Login now</a></div>
+            <div class="link">Already a user? <a href="login.html">Login now</a></div>
         </section>
     </div>
 
-    <script src = "pass-show-hide.js"></script>
+    <script src="pass-show-hide.js"></script>
 </body>
-
 </html>
