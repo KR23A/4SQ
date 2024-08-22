@@ -1,6 +1,7 @@
 <?php
 // Database connection
-$conn = new mysqli("hostname", "username", "password", "database");
+include 'db_connect.php';
+$conn = new mysqli("localhost", "4sqnew", "4sqdis", "4sqkush");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstName = $_POST['firstName'];

@@ -1,4 +1,5 @@
 <?php
+include 'db_connect.php';
 session_start();
 $conn = new mysqli("hostname", "username", "password", "database");
 

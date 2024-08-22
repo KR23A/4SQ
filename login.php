@@ -1,4 +1,5 @@
 <?php
+include 'db_connect.php';
 session_start();
 include 'config.php'; // This file should include your database connection details
 
