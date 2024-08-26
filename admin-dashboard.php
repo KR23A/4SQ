@@ -1,12 +1,16 @@
 <?php
 include 'db_connect.php';
 session_start();
+
 if (!isset($_SESSION['admin_logged_in'])) {
     header("Location: admin-login.html");
     exit();
 }
 
-$conn = new mysqli("hostname", "username", "password", "database");
+// Assuming $conn is defined in db_connect.php
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 $sql = "SELECT * FROM users WHERE status='pending'";
 $result = $conn->query($sql);
@@ -39,15 +43,15 @@ $result = $conn->query($sql);
             <tbody>
                 <?php while ($row = $result->fetch_assoc()) { ?>
                 <tr>
-                    <td><?php echo $row['firstName'] . " " . $row['lastName']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['businessName']; ?></td>
-                    <td><?php echo $row['dba']; ?></td>
-                    <td><?php echo $row['licenses']; ?></td>
-                    <td><?php echo $row['ein']; ?></td>
+                    <td><?php echo htmlspecialchars($row['firstName'] . " " . $row['lastName']); ?></td>
+                    <td><?php echo htmlspecialchars($row['email']); ?></td>
+                    <td><?php echo htmlspecialchars($row['businessName']); ?></td>
+                    <td><?php echo htmlspecialchars($row['dba']); ?></td>
+                    <td><?php echo htmlspecialchars($row['licenses']); ?></td>
+                    <td><?php echo htmlspecialchars($row['ein']); ?></td>
                     <td>
                         <form method="POST" action="approve-user.php">
-                            <input type="hidden" name="user_id" value="<?php echo $row['id']; ?>">
+                            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($row['id']); ?>">
                             <button type="submit" name="approve">Approve</button>
                             <button type="submit" name="reject">Reject</button>
                         </form>
