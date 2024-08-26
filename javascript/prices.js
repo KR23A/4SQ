@@ -1,3 +1,6 @@
+// Import bcryptjs
+const bcrypt = require('bcryptjs');
+
 // Simulated user database
 const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -11,41 +14,31 @@ const productPrices = {
     6: '$60'
 };
 
-// Function to display prices if the user is logged in
-function displayPricesOnCards() {
-    if (localStorage.getItem('loggedIn')) {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card, index) => {
-            const priceElement = card.querySelector('.price a');
-            const priceValue = productPrices[index + 1];
-            if (priceValue) {
-                priceElement.innerText = priceValue;
-                priceElement.removeAttribute('href'); // Remove the link if the price is displayed
-                priceElement.classList.remove('login-to-view-price-btn');
-            }
-        });
-    }
-}
-
-
 // Signup form handling
 document.querySelector('.signup form')?.addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const email = document.querySelector('.signup input[type="email"]').value;
-    const password = document.querySelector('.signup input[type="password"]').value;
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.querySelector('.signup input[type="email"]').value.trim();
+    const password = document.querySelector('.signup input[type="password"]').value.trim();
+
+    if (!firstName || !lastName || !email || !password) {
+        document.querySelector('.signup .error-txt').innerText = 'All fields are required!';
+        return;
+    }
 
     if (users.some(user => user.email === email)) {
         document.querySelector('.signup .error-txt').innerText = 'User already exists!';
     } else {
-        users.push({ firstName, lastName, email, password });
+        // Hash the password before storing it
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        users.push({ firstName, lastName, email, password: hashedPassword });
         localStorage.setItem('users', JSON.stringify(users));
         localStorage.setItem('loggedIn', true);
         localStorage.setItem('loggedInUser', email);
 
-        window.location.href = 'index.html'; // Redirect to the index page
+        window.location.href = 'index.html';
     }
 });
 
@@ -53,15 +46,20 @@ document.querySelector('.signup form')?.addEventListener('submit', function(even
 document.querySelector('.login form')?.addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const email = document.querySelector('.login input[type="text"]').value;
-    const password = document.querySelector('.login input[type="password"]').value;
+    const email = document.querySelector('.login input[type="text"]').value.trim();
+    const password = document.querySelector('.login input[type="password"]').value.trim();
 
-    const user = users.find(u => u.email === email && u.password === password);
+    if (!email || !password) {
+        document.querySelector('.login .error-txt').innerText = 'Both fields are required!';
+        return;
+    }
 
-    if (user) {
+    const user = users.find(u => u.email === email);
+
+    if (user && bcrypt.compareSync(password, user.password)) {
         localStorage.setItem('loggedIn', true);
         localStorage.setItem('loggedInUser', email);
-        window.location.href = 'index.html'; // Redirect to the index page
+        window.location.href = 'index.html';
     } else {
         document.querySelector('.login .error-txt').innerText = 'Invalid email or password!';
     }
@@ -74,11 +72,10 @@ function displayPricesOnCards() {
         cards.forEach(card => {
             const productId = card.getAttribute('data-product-id');
             const priceElement = card.querySelector('.price-value');
-            if (productPrices[productId]) {
-                priceElement.innerText = productPrices[productId];
-            } else {
-                priceElement.innerText = 'Price not available';
-            }
+            const priceValue = productPrices[productId] || 'Price not available';
+            priceElement.innerText = priceValue;
+            priceElement.removeAttribute('href');
+            priceElement.classList.remove('login-to-view-price-btn');
         });
     }
 }
