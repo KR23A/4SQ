@@ -259,3 +259,32 @@ section .card p{
     display: flex;
     align-items: center;
 }
+
+.product-page {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.product-image img {
+  max-width: 300px;
+}
+
+.product-details {
+  max-width: 600px;
+}
+
+.product-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-details .price {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.product-details select {
+  padding: 5px;
+  font-size: 16px;
+}
