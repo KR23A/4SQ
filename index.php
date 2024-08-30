@@ -36,55 +36,22 @@
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt praesentium commodi iusto corporis vel a?</p>
             </div>
             <ul class="cards flex">
-                <li class="card">
-                    <a href="products/geekbar-15000.html">
-                        <img src="images/G15K.jpg" alt="Geek Bar 15000">
-                        <h3>Geek Bar 15000</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                        <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
-                    </a>
-                </li>
-                <li class="card">
-                    <a href="products/geekbar-skyview.html">
-                        <img src="images/GSky.jpg" alt="Geek Bar Skyview">
-                        <h3>Geek Bar Skyview</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                        <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
-                    </a>
-                </li>
-                <li class="card">
-                    <a href="products/geekbar-25000.html">
-                        <img src="images/G25K.jpg" alt="Geek Bar 15000">
-                        <h3>Geek Bar 25000</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                        <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
-                    </a>
-                </li>
-                <li class="card">
-                    <a href="products/ijoy10.html">
-                    <img src="images/ijoy10.jpg" alt="ijoy10">
-                    <h3>iJoy Bar 10000</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
-                    </a>
-                </li>
-                <li class="card">
-                    <a href="products/ijoy22.html">
-                    <img src="images/ijoy22.png" alt="ijoy22">
-                    <h3>iJoy Bar 22000</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
-                </a>
-                </li>
-                <li class="card">
-                    <a href="products/fruty.html">
-                    <img src="images/fruty.jpg" alt="frutybar">
-                    <h3>Fruty Bar</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                    <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
-                </a>
-                </li>
+                <?php
+                $sql = "SELECT * FROM products";
+                $result = $conn->query($sql);
+                while ($product = $result->fetch_assoc()) {
+                    ?>
+                    <li class="card">
+                        <a href="product.php?id=<?php echo htmlspecialchars($product['id']); ?>">
+                            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                            <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                            <p><?php echo htmlspecialchars($product['description']); ?></p>
+                            <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
+                        </a>
+                    </li>
+                <?php } ?>
             </ul>
+            
         </div>
     </section>    
     <section class="portfolio" id="portfolio">

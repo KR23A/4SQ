@@ -9,8 +9,13 @@ if (isset($_GET['id'])) {
     $result = $stmt->get_result();
     $product = $result->fetch_assoc();
     $stmt->close();
+
+    if (!$product) {
+        echo "Product not found!";
+        exit();
+    }
 } else {
-    echo "No product found!";
+    echo "No product ID specified!";
     exit();
 }
 ?>
@@ -24,4 +29,19 @@ if (isset($_GET['id'])) {
 </head>
 <body>
     <div class="product-page">
-       
+        <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+        <h1><?php echo htmlspecialchars($product['name']); ?></h1>
+        <p><?php echo htmlspecialchars($product['description']); ?></p>
+        <p>Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
+        <label for="productFlavors">Choose a flavor:</label>
+        <select id="productFlavors">
+            <?php 
+                $flavors = explode(',', $product['flavors']);
+                foreach ($flavors as $flavor) {
+                    echo "<option value='" . htmlspecialchars($flavor) . "'>" . htmlspecialchars($flavor) . "</option>";
+                }
+            ?>
+        </select>
+    </div>
+</body>
+</html>
