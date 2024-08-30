@@ -7,7 +7,6 @@ if (!isset($_SESSION['admin_logged_in'])) {
     exit();
 }
 
-// Assuming $conn is defined in db_connect.php
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -27,6 +26,29 @@ $result = $conn->query($sql);
 <body>
     <div class="dashboard">
         <h1>Admin Dashboard</h1>
+        
+        <!-- Product Upload Section -->
+        <h2>Upload New Product</h2>
+        <form action="upload-product.php" method="POST" enctype="multipart/form-data">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" required><br>
+
+            <label for="productImage">Product Image:</label>
+            <input type="file" id="productImage" name="productImage" required><br>
+
+            <label for="productPrice">Product Price:</label>
+            <input type="text" id="productPrice" name="productPrice" required><br>
+
+            <label for="productDescription">Product Description:</label>
+            <textarea id="productDescription" name="productDescription" required></textarea><br>
+
+            <label for="productFlavors">Product Flavors (comma-separated):</label>
+            <input type="text" id="productFlavors" name="productFlavors" required><br>
+
+            <button type="submit">Upload Product</button>
+        </form>
+
+        <!-- Pending User Approvals Section -->
         <h2>Pending User Approvals</h2>
         <table>
             <thead>
