@@ -54,29 +54,28 @@
             
         </div>
     </section>    
-    <section class="portfolio" id="portfolio">
+    <section class="delta" id="delta">
         <div class="container">
             <div class="section-title">
-                <h2>Our Portfolio</h2>
+                <h2>Delta Products</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt praesentium commodi iusto corporis vel a?</p>
             </div>
-            <u1 class="cards flex">
-                <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                </li>
-                <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                </li>
-                <li class ="card">
-                    <img src ="images/MOD_1.png" alt = "Vapes">
-                    <h3> Vapes</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, totam.</p>
-                </li>
-                </u1>
+            <ul class="cards flex">
+                <?php
+                $sql = "SELECT * FROM products";
+                $result = $conn->query($sql);
+                while ($product = $result->fetch_assoc()) {
+                    ?>
+                    <li class="card">
+                        <a href="product.php?id=<?php echo htmlspecialchars($product['id']); ?>">
+                            <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                            <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+                            <p><?php echo htmlspecialchars($product['description']); ?></p>
+                            <p class="price">Price: <a href="login.html" class="login-to-view-price-btn">Login to view price</a></p>
+                        </a>
+                    </li>
+                <?php } ?>
+            </ul>
         </div>
     </section>
     <section class="about" id="about">
