@@ -23,4 +23,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "No admin found with that email.";
     }
 }
-?>
+
